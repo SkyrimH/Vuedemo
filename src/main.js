@@ -17,3 +17,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+// cd WEB\Vue\vuedemo-travel
