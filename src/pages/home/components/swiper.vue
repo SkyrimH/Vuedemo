@@ -1,13 +1,13 @@
 <template>
-<div class="wrapper">
-  <swiper :options="swiperOption">
-      <swiper-slide v-for="item in swiperList" :key="item.id">
-          <img :src="item.url" class="swiper-img">
-      </swiper-slide>
+    <div class="wrapper">
+        <swiper :options="swiperOption">
+            <swiper-slide v-for="item in swiperList" :key="item.id">
+                <img :src="item.url" class="swiper-img">
+            </swiper-slide>
 
-      <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
-</div>
+            <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+    </div>
 
 </template>
 <script>
@@ -16,6 +16,7 @@
     data () {
         return {
             swiperOption: {
+                // 小白点
                 pagination: '.swiper-pagination'
             },
             swiperList: [{
@@ -41,5 +42,4 @@
         background-color: #eee
         .swiper-img
             width: 100%
-            height: auto 
 </style>
