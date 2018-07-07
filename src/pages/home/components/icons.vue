@@ -1,6 +1,8 @@
 <template>
     <div class="icons">
-        <div class="icon">
+        <swiper>
+            <swiper-slide v-for="page in pages" :key="index">
+                <div class="icon"  v-for="item in page" :key="item.id">
             <div class="icon-img">
                 <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
             </div>
@@ -10,45 +12,6 @@
             <div class="icon-img">
                 <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
             </div>
-            <p class="icon-desc">热门景点</p>
-        </div>
-                <div class="icon">
-            <div class="icon-img">
-                <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
-            </div>
-            <p class="icon-desc">热门景点</p>
-        </div>
-                <div class="icon">
-            <div class="icon-img">
-                <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
-            </div>
-            <p class="icon-desc">热门景点</p>
-        </div>
-                <div class="icon">
-            <div class="icon-img">
-                <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
-            </div>
-            <p class="icon-desc">热门景点</p>
-        </div>
-                <div class="icon">
-            <div class="icon-img">
-                <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
-            </div>
-            <p class="icon-desc">热门景点</p>
-        </div>
-                <div class="icon">
-            <div class="icon-img">
-                <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
-            </div>
-            <p class="icon-desc">热门景点</p>
-        </div>
-                <div class="icon">
-            <div class="icon-img">
-                <img class="icon-content" src="http://p1.meituan.net/jungle/8b5e1702d4145ccf058ba5fb31008c5310912.png">
-            </div>
-            <p class="icon-desc">热门景点</p>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -88,4 +51,7 @@
                 bottom: 0
                 height: .4rem
                 text-align: center
+            overflow: hidden
+            white-space: nowrap
+            text-overflow: ellipsis // 使超出范围的文字用...表示
 </style>
