@@ -73,7 +73,6 @@
     .icons >>> .swiper-container
         height: 0
         padding-bottom: 50%
-        background: #eee
     .icon
         position: relative
         float: left
