@@ -52,6 +52,7 @@
         overflow: hidden
         display: flex
         height: 1.9rem
+        padding: 0 .1rem
         .item-img
             width: 1.7rem
             height: 1.7rem
