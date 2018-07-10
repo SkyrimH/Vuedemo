@@ -1,14 +1,14 @@
 <template>
     <div>
-        <home-header>
+        <home-header :city='city'>
         </home-header>
-        <home-swiper>
+        <home-swiper :list='swiperList'>
         </home-swiper>
-        <home-icons>
+        <home-icons :list='iconList'>
         </home-icons>
-        <home-recommend>
+        <home-recommend :list='recommendList'>
         </home-recommend>
-        <home-weekend>
+        <home-weekend :list='weekendList'>
         </home-weekend>
     </div>
 </template>
@@ -20,6 +20,7 @@
     import homeIcons from './components/icons.vue'
     import homeRecommend from './components/recommend.vue'
     import homeWeekend from './components/weekend.vue'
+    import axios from 'axios'
     export default {
         name: 'Homepage',
         components: {
@@ -28,6 +29,39 @@
             homeIcons,
             homeRecommend,
             homeWeekend
+        },
+        data () {
+            return {
+                city: '',
+                swiperList: [],
+                iconList: [],
+                recommendList: [],
+                weekendList: []
+            }
+        },
+        methods: {
+            // 执行axios函数
+            getHomeInfo () {
+                console.log('111');
+                
+                axios.get('/api/index.json')
+                    .then(this.getHomeInfoSucc)
+            },
+            getHomeInfoSucc (res) {
+                res = res.data
+                if (res.ret && res.data) {
+                    const data = res.data
+                    this.city = data.city
+                    this.swiperList = data.swiperList
+                    this.iconList = data.iconList
+                    this.recommendList = data.recommendList
+                    this.weekendList = data.weekendList
+                }
+            }
+        },
+        // mounted指页面挂载完成之后执行
+        mounted () {
+            this.getHomeInfo()
         }
     }
 </script>
