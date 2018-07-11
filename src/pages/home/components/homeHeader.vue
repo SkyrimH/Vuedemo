@@ -4,7 +4,12 @@
             <span class="iconfont">&#xe624;</span>
         </div>
         <div class="header-input"><span class="iconfont">&#xe632;</span>搜索</div>
-        <div class="header-right">{{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span></div>
+        <router-link to="/city">
+            <div class="header-right">{{this.city}}
+                <span class="iconfont arrow-icon">&#xe64a;</span>
+            </div>
+        </router-link>
+
     </div>
 </template>
 
@@ -41,6 +46,7 @@
             width: 1.24rem
             float: right 
             text-align: center
+            color: white
             .arrow-icon
                 margin-left: .06rem
                 font-size: .24rem
