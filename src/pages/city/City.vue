@@ -2,8 +2,8 @@
     <div>
         <city-header></city-header>
         <city-search></city-search>
-        <city-list :hotCitiesList='hotCities' :cities='cities'></city-list>
-        <city-alphabet :cities='cities'></city-alphabet>
+        <city-list :hotCitiesList='hotCities' :cities='cities' :letter='letter'></city-list>
+        <city-alphabet :cities='cities' @jump="handleLetter"></city-alphabet>
     </div>
 </template>
 <script>
@@ -23,7 +23,8 @@
         data () {
             return {
                 hotCities: [],
-                cities:{}
+                cities:{},
+                letter: ''
             }
         },
         methods: {
@@ -39,6 +40,9 @@
                     this.hotCities = data.hotCities
                     this.cities = data.cities
                 }
+            },
+            handleLetter (letter) {
+                this.letter = letter
             }
         },
         mounted () {
