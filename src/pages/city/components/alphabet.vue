@@ -16,8 +16,14 @@
         },
         data () {
             return {
-                touchStatus: false
+                touchStatus: false,
+                startY: 0,
+                timer: null             
             }
+        },
+        // updated生命周期钩子
+        updated () {
+            this.startY = this.$refs['A'][0].offsetTop
         },
         computed: {
             letters () {
@@ -37,12 +43,18 @@
             },
             handleTouchMove (e) {
                 if (this.touchStatus) {
-                    const startY = this.$refs['A'][0].offsetTop
-                    // 元素的touches方法和clientY方法
-                    const touchY = e.touches[0].clientY - 80
-                    const index = Math.floor((touchY - startY) / 20)
-                    if (index >= 0 && index < this.letters.length) {
-                        this.$emit('jump', this.letters[index])             }                    
+                    // 设置函数截流
+                    if (this.timer) {
+                        clearTimeout(this.timer)
+                    }
+                    this.timer = setTimeout(() => {
+                        // 元素的touches方法和clientY方法
+                        const touchY = e.touches[0].clientY - 80
+                        const index = Math.floor((touchY - this.startY) / 20)
+                        if (index >= 0 && index < this.letters.length) {
+                            this.$emit('jump', this.letters[index])             
+                        }     
+                    }, 16)               
                 }
             },
             handleTouchEnd () {
