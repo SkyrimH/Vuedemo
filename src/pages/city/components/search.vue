@@ -5,7 +5,8 @@
         </div>
         <div class="searchContent" ref="search" v-show="keyword">
             <ul>
-                <li class="searchItem border-bottom" v-for="item in list" :key="item.id">{{item.name}}</li>
+                <li class="searchItem border-bottom" v-for="item in list" :key="item.id" 
+                @click="handleCityClick(item.name)">{{item.name}}</li>
                 <li class="searchItem border-bottom" v-show="hasNodata">没有找到匹配数据</li>
             </ul>
         </div>
@@ -24,6 +25,13 @@
                 keyword: "",
                 list: [],
                 timer: null
+            }
+        },
+        methods: {
+            handleCityClick (city) {
+                // 组件通过dispatch调用vuex的actiion，注意，传入一个函数名和需要的参数
+                this.$store.dispatch('changeCity', city)
+                this.$router.push('/')
             }
         },
         computed: {
