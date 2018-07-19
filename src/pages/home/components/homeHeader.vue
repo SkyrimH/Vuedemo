@@ -5,7 +5,7 @@
         </div>
         <div class="header-input"><span class="iconfont">&#xe632;</span>搜索</div>
         <router-link to="/city">
-            <div class="header-right">{{this.$store.state.city}}
+            <div class="header-right">{{this.city}}
                 <span class="iconfont arrow-icon">&#xe64a;</span>
             </div>
         </router-link>
@@ -14,9 +14,15 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
         name: 'HomeHeader',
+        computed: {
+            // 将公用属性映射到city的计算属性中
+            ...mapState(['city'])
+        }
     }
+
 </script>
 <style lang="stylus" scoped>
     @import '~style/varibles.styl'
@@ -40,7 +46,8 @@
             border-radius: .1rem
             color: #ccc
         .header-right
-            width: 1.24rem
+            min-width: 1.04rem
+            padding: 0 .1rem
             float: right 
             text-align: center
             color: white

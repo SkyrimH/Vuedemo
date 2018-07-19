@@ -14,6 +14,7 @@
 
 </template>
 <script>
+    import { mapMutations } from 'vuex'
     import Bscroll from 'better-scroll'
     export default {
         name: 'citySearch',
@@ -30,9 +31,10 @@
         methods: {
             handleCityClick (city) {
                 // 组件通过dispatch调用vuex的actiion，注意，传入一个函数名和需要的参数
-                this.$store.dispatch('changeCity', city)
+                this.changeCity(city)
                 this.$router.push('/')
-            }
+            },
+            ...mapMutations(['changeCity'])
         },
         computed: {
             hasNodata () {
