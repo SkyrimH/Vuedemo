@@ -36,7 +36,9 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'style': resolve('src/assets/style')
+      // 自定义路径简写
+      'style': resolve('src/assets/style'),
+      'common': resolve('src/common')
     }
   },
   module: {
