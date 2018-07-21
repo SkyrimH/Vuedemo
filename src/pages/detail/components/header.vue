@@ -41,6 +41,10 @@
         activated () {
             // 监听滑动事件
             window.addEventListener('scroll', this.handleScroll)
+        },
+        deactivated () {
+            // 解绑全局事件，否则会资源浪费
+            window.removeEventListener('scroll', this.handleScroll)
         }
     }
 </script>
