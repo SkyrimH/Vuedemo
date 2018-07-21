@@ -65,6 +65,7 @@
             color: #ccc
             font-size: .4rem
     .header-fixed
+        z-index: 98
         position: fixed
         top: 0
         right: 0

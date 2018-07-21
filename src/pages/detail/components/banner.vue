@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="banner" @click="handleBanner">
-            <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_600x330_cd2e3bf7.jpg">
+            <img class="banner-img" :src="list.bannerImg">
             <div class="banner-info">
-                <div class="banner-title">广州长隆旅游度假区(AAAAA景区)</div>
+                <div class="banner-title">{{list.sightName}}</div>
                 <div class="banner-number"><span class="iconfont banner-icon">&#xe608;</span>16</div>
             </div>
         </div>
-        <common-gallary :imgs="imgs" v-show="showGallray" @close="closeGallray">
+        <common-gallary :imgs="list.gallaryImgs" v-show="showGallray" @close="closeGallray">
         </common-gallary>
     </div>
 
@@ -20,10 +20,12 @@ import commonGallary from 'common/gallary/Gallary'
         components: {
             commonGallary
         },
+        props: {
+            list: Object
+        },
         data () {
             return {
-                showGallray: false,
-                imgs: ["http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_r_800x800_41637b9b.jpg","http://img1.qunarzz.com/sight/p0/201405/29/929a9ed086f90be479e311655f8d3920.jpg_r_800x800_cceed5d3.jpg"]
+                showGallray: false
             }
         },
         methods: {
