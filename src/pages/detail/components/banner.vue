@@ -7,18 +7,21 @@
                 <div class="banner-number"><span class="iconfont banner-icon">&#xe608;</span>16</div>
             </div>
         </div>
-        <common-gallary :imgs="list.gallaryImgs" v-show="showGallray" @close="closeGallray">
-        </common-gallary>
+        <common-fade>
+            <common-gallary :imgs="list.gallaryImgs" v-show="showGallray" @close="closeGallray">
+            </common-gallary>
+        </common-fade>
     </div>
-
 </template>
 
 <script>
 import commonGallary from 'common/gallary/Gallary'
+import commonFade from 'common/fade/fade'
     export default {
         name: 'detailBanner',
         components: {
-            commonGallary
+            commonGallary,
+            commonFade
         },
         props: {
             list: Object
